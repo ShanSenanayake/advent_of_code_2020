@@ -21,8 +21,32 @@ def test_part_one():
         print("  Failed")
 
 
+def test_part_two():
+    print("Testing part one")
+    values = [(1, 3, "a", "abcde"), (1, 3, "b", "cdefg"), (2, 9, "c", "ccccccccc")]
+    result = part_two(values)
+    if result == 1:
+        print("  Passed")
+    else:
+        print("  Failed")
+
+
+def parse_input() -> List[Tuple[int, int, str, str]]:
+    result: List = []
+    with open("inputs/day_2_part_1.txt", "r") as fp:
+        for line in fp.readlines():
+            rules, input_string = line.split(":")
+            limits, character = rules.split(" ")
+            lower_limit, upper_limit = [int(limit) for limit in limits.split("-")]
+            result.append((lower_limit, upper_limit, character, input_string))
+        return result
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "test":
         test_part_one()
+        test_part_two()
     else:
-        pass
+        input_values = parse_input()
+        result = part_one(input_values)
+        print("Part 1 result: {}".format(result))
