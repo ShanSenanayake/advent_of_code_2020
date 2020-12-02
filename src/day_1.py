@@ -24,6 +24,17 @@ def test_part_one():
         print("  Failed")
 
 
+def parse_input() -> List[int]:
+    result: List = None
+    with open("inputs/day_1_part_1.txt", "r") as fp:
+        result = [int(line) for line in fp.readlines()]
+        return result
+
+
 if __name__ == "__main__":
-    if sys.argv[1] == "test":
+    if len(sys.argv) > 1 and sys.argv[1] == "test":
         test_part_one()
+    else:
+        input_values = parse_input()
+        result = part_one(input_values)
+        print("Part 1 result: {}".format(result))
