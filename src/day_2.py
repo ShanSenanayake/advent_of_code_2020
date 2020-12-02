@@ -11,6 +11,16 @@ def part_one(values: List[Tuple[int, int, str, str]]) -> int:
     return nbr_valid_password
 
 
+def part_two(values: List[Tuple[int, int, str, str]]) -> int:
+    nbr_valid_password = 0
+    for first_index, second_index, character, input_string in values:
+        first_position = input_string[first_index - 1] == character
+        second_position = input_string[second_index - 1] == character
+        if first_position != second_position:
+            nbr_valid_password += 1
+    return nbr_valid_password
+
+
 def test_part_one():
     print("Testing part one")
     values = [(1, 3, "a", "abcde"), (1, 3, "b", "cdefg"), (2, 9, "c", "ccccccccc")]
@@ -22,7 +32,7 @@ def test_part_one():
 
 
 def test_part_two():
-    print("Testing part one")
+    print("Testing part two")
     values = [(1, 3, "a", "abcde"), (1, 3, "b", "cdefg"), (2, 9, "c", "ccccccccc")]
     result = part_two(values)
     if result == 1:
