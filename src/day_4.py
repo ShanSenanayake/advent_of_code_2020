@@ -17,7 +17,7 @@ def part_two(passports: List[str]) -> int:
         r"byr:((19[2-9]\d)|(200[0-2]))\s",
         r"iyr:20((1\d)|(20))\s",
         r"eyr:20((2\d)|(30))\s",
-        r"hgt:((1(([5-8]\d)|(90))cm)|(((59)|(6\d)|(7[0-6]))in))\s",
+        r"hgt:((1(([5-8]\d)|(9[0-3]))cm)|(((59)|(6\d)|(7[0-6]))in))\s",
         r"hcl:#[0-9a-f]{6}\s",
         r"ecl:(amb|blu|brn|gry|grn|hzl|oth)\s",
         r"pid:\d{9}\s",
@@ -64,5 +64,5 @@ if __name__ == "__main__":
         input_string = parse_input("inputs/day_4_part_1.txt")
         result = part_one(input_string)
         print("Part 1 result: {}".format(result))
-        # result = part_two(tree_chart)
-        # print("Part 2 result: {}".format(result))
+        result = part_two(input_string)
+        print("Part 2 result: {}".format(result))
