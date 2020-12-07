@@ -64,13 +64,3 @@ if __name__ == "__main__":
         print("Part 1 result: {}".format(result))
         result = part_two(input_list)
         print("Part 2 result: {}".format(result))
-        print(
-            sum(
-                [
-                    len(set(re.sub(r"[^a-z]+", "", answer)))
-                    for answer in re.split(
-                        r"\n\s*\n", open("inputs/day_6_input.txt").read()
-                    )
-                ]
-            )
-        )
